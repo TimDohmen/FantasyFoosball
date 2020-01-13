@@ -1,9 +1,13 @@
 import store from "../store.js";
 import PlayerService from "../Services/PlayerService.js";
+import Player from "../Models/Player.js";
 
 //Private
 function _draw() {
-  console.log(store.State.everything)
+  let template = ""
+  let players = store.State.playersByTeam
+  players.forEach(p => template += p.name + ", ")
+  document.querySelector("#players").innerHTML = template
 }
 
 
@@ -11,17 +15,21 @@ function _draw() {
 //Public
 export default class SongsController {
   constructor() {
-    store.subscribe("everything", _draw);
-    // SongService.getMySongs();
-    this.getStuff()
+    store.subscribe("allPlayers", _draw);
+    store.subscribe("playersByTeam", _draw);
+
+    this.getAllPlayers()
   }
 
-  getStuff() {
+  getAllPlayers() {
     try {
-      PlayerService.getEverything()
+      PlayerService.getAllPlayers()
     } catch (error) {
       console.log("hit da bad bugga")
     }
+  }
+  filterByTeam() {
+    PlayerService.filterByTeam()
   }
 
 
