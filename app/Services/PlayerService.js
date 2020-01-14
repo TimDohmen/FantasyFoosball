@@ -57,6 +57,10 @@ class PlayerService {
     if (localData) {
       // debugger
       store.State.allPlayers = JSON.parse(localData).map(p => new Player(p));
+      let teams = []
+      store.State.allPlayers.forEach(p => teams.includes(p.team) ? "" : teams.push(p.team))
+      store.commit("teamChoices", teams)
+      console.log(teams)
       //return will short-circuit the loadPlayersData function
       //this will prevent the code below from ever executing
     }

@@ -11,6 +11,7 @@ function _draw() {
 }
 
 function _drawTeams() {
+  debugger
   let template = ``
   let teams = store.State.teamChoices
   teams.forEach(t => template += `<option value="${t}">${t}</option>`)
@@ -24,6 +25,7 @@ function _drawTeams() {
 //Public
 export default class SongsController {
   constructor() {
+    _drawTeams()
     // store.subscribe("allPlayers", _draw);
     store.subscribe("displayPlayers", _draw);
     store.subscribe("teamChoices", _drawTeams)
@@ -31,12 +33,7 @@ export default class SongsController {
   }
 
   getAllPlayers() {
-    try {
-      PlayerService.getAllPlayers()
-    } catch (error) {
-      console.log("hit da bad bugga", error)
-    }
-    console.log("got players")
+    PlayerService.getAllPlayers()
   }
   filterByTeam(team) {
     PlayerService.filterByTeam(team)
