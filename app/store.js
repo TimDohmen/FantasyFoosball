@@ -5,7 +5,8 @@ let _state = {
   /**@type {Player[]} */
   displayPlayers: [],
   myTeam: [],
-  teamChoices: []
+  teamChoices: [],
+  positionChoices: []
 };
 
 /** Collection of listeners to be called based on keyed state changes
@@ -15,7 +16,9 @@ let _listeners = {
   allPlayers: [],
   displayPlayers: [],
   myTeam: [],
-  teamChoices: []
+  teamChoices: [],
+  positionChoices: []
+
 
 };
 

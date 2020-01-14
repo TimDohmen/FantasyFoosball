@@ -20,6 +20,10 @@ class PlayerService {
         let teams = []
         data.forEach(p => teams.includes(p.team) ? "" : teams.push(p.team))
         store.commit("teamChoices", teams)
+        debugger
+        let positions = []
+        data.forEach(p => positions.includes(p.position) ? "" : positions.push(p.position))
+        store.commit("positionChoices", positions)
       })
       .catch(error => {
         throw new Error(error);
@@ -68,6 +72,10 @@ class PlayerService {
       let teams = []
       store.State.allPlayers.forEach(p => teams.includes(p.team) ? "" : teams.push(p.team))
       store.commit("teamChoices", teams)
+      let positions = []
+      store.State.allPlayers.forEach(p => positions.includes(p.position) ? "" : positions.push(p.position))
+      store.commit("positionChoices", positions)
+
       console.log(teams)
       //return will short-circuit the loadPlayersData function
       //this will prevent the code below from ever executing

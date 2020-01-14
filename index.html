@@ -24,15 +24,10 @@
             <button onclick="app.playerController.getAllPlayers()">Load Players</button>
             <button onclick="app.playerController.viewMyTeam()">View My Team</button>
 
-            <select id="position"
+            <select id="dropDownPositions"
                 onchange="app.playerController.filterPosition(this.options[this.selectedIndex].value)">
                 <option value="">Select a Position</option>
-                <option value="QB">QB</option>
-                <option value="RB">RB</option>
-                <option value="WR">WR</option>
-                <option value="TE">TE</option>
-                <option value="K">K</option>
-                <option value="DEF">DEF</option>
+
             </select>
             <select id="dropDownTeams"
                 onchange="app.playerController.filterByTeam(this.options[this.selectedIndex].value)">

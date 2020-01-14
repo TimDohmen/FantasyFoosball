@@ -14,8 +14,15 @@ function _drawTeams() {
   let template = ``
   let teams = store.State.teamChoices
   teams.forEach(t => template += `<option value="${t}">${t}</option>`)
-  console.log(template);
   document.querySelector("#dropDownTeams").innerHTML = template
+
+}
+function _drawPositions() {
+  debugger
+  let template = ``
+  let positions = store.State.positionChoices
+  positions.forEach(p => template += `<option value="${p}">${p}</option>`)
+  document.querySelector("#dropDownPositions").innerHTML = template
 
 }
 
@@ -25,9 +32,9 @@ function _drawTeams() {
 export default class SongsController {
   constructor() {
     _drawTeams()
+    _drawPositions()
     // store.subscribe("allPlayers", _draw);
     store.subscribe("displayPlayers", _draw);
-    store.subscribe("teamChoices", _drawTeams)
     store.subscribe("myTeam", _draw)
 
     // this.getAllPlayers()
