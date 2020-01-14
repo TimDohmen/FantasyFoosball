@@ -14,7 +14,6 @@ class PlayerService {
       .get()
       .then(res => {
         let data = res.data.body.players.map(p => new Player(p));
-        debugger
         store.commit("allPlayers", data);
       })
       .catch(error => {
@@ -24,10 +23,14 @@ class PlayerService {
   }
   filterByTeam() {
     let collection = store.State.allPlayers
-    debugger
-
     let team = collection.filter(p => p.team == "SEA")
-    store.commit("playersByTeam", team);
+    store.commit("displayPlayers", team);
+  }
+  filterPosition(position) {
+    debugger
+    let collection = store.State.allPlayers
+    let displayTeam = collection.filter(p => p.position == position)
+    store.commit("displayPlayers", displayTeam)
   }
 
 }

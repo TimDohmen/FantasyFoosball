@@ -5,7 +5,7 @@ import Player from "../Models/Player.js";
 //Private
 function _draw() {
   let template = ""
-  let players = store.State.playersByTeam
+  let players = store.State.displayPlayers
   players.forEach(p => template += p.name + ", ")
   document.querySelector("#players").innerHTML = template
 }
@@ -16,7 +16,7 @@ function _draw() {
 export default class SongsController {
   constructor() {
     store.subscribe("allPlayers", _draw);
-    store.subscribe("playersByTeam", _draw);
+    store.subscribe("displayPlayers", _draw);
 
     this.getAllPlayers()
   }
@@ -30,6 +30,10 @@ export default class SongsController {
   }
   filterByTeam() {
     PlayerService.filterByTeam()
+  }
+  filterPosition(position) {
+    debugger
+    PlayerService.filterPosition(position)
   }
 
 

@@ -19,9 +19,17 @@
 </header>
 
 <body class="container-fluid">
-    <div id="players"></div>
     <button onclick="app.playerController.filterByTeam()">Filter</button>
-
+    <select id="position" onchange="app.playerController.filterPosition(this.options[this.selectedIndex].value)">
+        <option value="">Select a Position</option>
+        <option value="QB">QB</option>
+        <option value="RB">RB</option>
+        <option value="WR">WR</option>
+        <option value="TE">TE</option>
+        <option value="K">K</option>
+        <option value="DEF">DEF</option>
+    </select>
+    <div id="players"></div>
 
 
 
