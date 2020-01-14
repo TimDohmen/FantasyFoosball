@@ -11,10 +11,12 @@ export default class Player {
     this.firstName = data.firstname || data.firstName
     this.status = data.pro_status || data.status
     this.id = data.id
+    this.owned = false
   }
 
   get Template() {
-    return `
+    let template = ''
+    template += `
     <div class="col-3 pt-3 mb-3">
       <div class="card h-100">
         <img src="${this.photo}" class="card-img-top" alt="...">
@@ -22,10 +24,16 @@ export default class Player {
           <h3>${this.name}</h3>
           <h5>Position: ${this.position}  -- ${this.team}</h5>
           <p class="pb-3">Bye Week: ${this.bye}<p> </div>
-          <button onclick="app.playerController.addPlayer(${this.id})">Add To Team</button>
-        </div>
-      </div> 
-    </div> 
     `
+    if (this.owned) {
+      template += `<button class="btn btn-danger" onclick="app.playerController.removePlayer(${this.id})">Remove</button>`
+    }
+    else {
+      template += `<button class="btn btn-primary" onclick="app.playerController.addPlayer(${this.id})">Add To Team</button>`
+    }
+    template += `</div>
+      </div> 
+    </div> `
+    return template
   }
 }

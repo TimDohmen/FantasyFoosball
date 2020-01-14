@@ -39,9 +39,17 @@ class PlayerService {
   addPlayer(id) {
     let player = store.State.allPlayers.find(p => p.id == id)
     let team = store.State.myTeam
+    player.owned = true
     team.push(player)
     store.commit("myTeam", team)
     console.log(store.State.myTeam)
+  }
+  removePlayer(id) {
+    let player = store.State.myTeam.find(p => p.id == id)
+    let team = store.State.myTeam
+    player.owned = false
+    team.filter(p => p.id != id)
+    store.commit("myTeam", team)
   }
   viewMyTeam() {
     store.commit("displayPlayers", store.State.myTeam)

@@ -28,6 +28,8 @@ export default class SongsController {
     // store.subscribe("allPlayers", _draw);
     store.subscribe("displayPlayers", _draw);
     store.subscribe("teamChoices", _drawTeams)
+    store.subscribe("myTeam", _draw)
+
     // this.getAllPlayers()
   }
 
@@ -45,6 +47,9 @@ export default class SongsController {
   }
   viewMyTeam() {
     PlayerService.viewMyTeam()
+  }
+  removePlayer(playerId) {
+    PlayerService.removePlayer(playerId)
   }
 
 }
