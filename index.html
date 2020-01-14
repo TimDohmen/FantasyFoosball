@@ -23,7 +23,6 @@
         <div class="col">
             <button onclick="app.playerController.getAllPlayers()">Load Players</button>
 
-            <button onclick="app.playerController.filterByTeam()">Filter</button>
             <select id="position"
                 onchange="app.playerController.filterPosition(this.options[this.selectedIndex].value)">
                 <option value="">Select a Position</option>
@@ -34,14 +33,9 @@
                 <option value="K">K</option>
                 <option value="DEF">DEF</option>
             </select>
-            <select id="team" onchange="app.playerController.filterTeam(this.options[this.selectedIndex].value)">
-                <option value="">Select a Position</option>
-                <option value="QB">QB</option>
-                <option value="RB">RB</option>
-                <option value="WR">WR</option>
-                <option value="TE">TE</option>
-                <option value="K">K</option>
-                <option value="DEF">DEF</option>
+            <select id="dropDownTeams"
+                onchange="app.playerController.filterByTeam(this.options[this.selectedIndex].value)">
+                <option value="">Select a Team</option>
             </select>
         </div>
     </div>

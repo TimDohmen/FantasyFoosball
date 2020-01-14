@@ -10,14 +10,23 @@ function _draw() {
   document.querySelector("#players").innerHTML = template
 }
 
+function _drawTeams() {
+  let template = ``
+  let teams = store.State.teamChoices
+  teams.forEach(t => template += `<option value="${t}">${t}</option>`)
+  console.log(template);
+  document.querySelector("#dropDownTeams").innerHTML = template
+
+}
+
 
 
 //Public
 export default class SongsController {
   constructor() {
-    store.subscribe("allPlayers", _draw);
+    // store.subscribe("allPlayers", _draw);
     store.subscribe("displayPlayers", _draw);
-
+    store.subscribe("teamChoices", _drawTeams)
     // this.getAllPlayers()
   }
 
@@ -25,12 +34,12 @@ export default class SongsController {
     try {
       PlayerService.getAllPlayers()
     } catch (error) {
-      console.log("hit da bad bugga")
+      console.log("hit da bad bugga", error)
     }
     console.log("got players")
   }
-  filterByTeam() {
-    PlayerService.filterByTeam()
+  filterByTeam(team) {
+    PlayerService.filterByTeam(team)
   }
   filterPosition(position) {
     PlayerService.filterPosition(position)

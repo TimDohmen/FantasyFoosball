@@ -17,16 +17,19 @@ class PlayerService {
         let data = res.data.body.players.map(p => new Player(p));
         localStorage.setItem('nflData', JSON.stringify(data))
         store.commit("allPlayers", data);
+        let teams = []
+        data.forEach(p => teams.includes(p.team) ? "" : teams.push(p.team))
+        store.commit("teamChoices", teams)
       })
       .catch(error => {
-        throw new Error(error.response.data.message);
+        throw new Error(error);
       });
 
   }
-  filterByTeam() {
+  filterByTeam(searchedTeam) {
     debugger
     let collection = store.State.allPlayers
-    let team = collection.filter(p => p.team == "SEA")
+    let team = collection.filter(p => p.team == searchedTeam)
     store.commit("displayPlayers", team);
   }
   filterPosition(position) {
@@ -52,11 +55,10 @@ class PlayerService {
     let localData = localStorage.getItem('nflData');
     //if they do, pull from there
     if (localData) {
-      debugger
+      // debugger
       store.State.allPlayers = JSON.parse(localData).map(p => new Player(p));
       //return will short-circuit the loadPlayersData function
       //this will prevent the code below from ever executing
-
     }
 
     //if not go get that data
