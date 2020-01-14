@@ -52,7 +52,7 @@ class PlayerService {
     let player = store.State.myTeam.find(p => p.id == id)
     let team = store.State.myTeam
     player.owned = false
-    team.filter(p => p.id != id)
+    team = team.filter(p => p.id != id)
     store.commit("myTeam", team)
   }
   viewMyTeam() {

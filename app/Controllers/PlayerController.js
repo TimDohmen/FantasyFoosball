@@ -35,6 +35,10 @@ export default class SongsController {
     _drawPositions()
     store.subscribe("displayPlayers", _draw);
     store.subscribe("myTeam", _draw)
+    store.subscribe("teamChoices", _drawTeams)
+    store.subscribe("positionChoices", _drawPositions)
+
+
 
     // this.getAllPlayers()
   }
