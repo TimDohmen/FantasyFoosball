@@ -67,6 +67,9 @@ class Store {
     _state[prop] = data;
     _listeners[prop].forEach(fn => fn());
   }
+
+
+
 }
 
 const store = new Store();

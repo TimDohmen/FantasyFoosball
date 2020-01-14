@@ -18,7 +18,7 @@ export default class SongsController {
     store.subscribe("allPlayers", _draw);
     store.subscribe("displayPlayers", _draw);
 
-    this.getAllPlayers()
+    // this.getAllPlayers()
   }
 
   getAllPlayers() {
