@@ -6,7 +6,7 @@ import Player from "../Models/Player.js";
 function _draw() {
   let template = ""
   let players = store.State.displayPlayers
-  players.forEach(p => template += p.name + ", ")
+  players.forEach(p => template += p.Template)
   document.querySelector("#players").innerHTML = template
 }
 
@@ -27,15 +27,17 @@ export default class SongsController {
     } catch (error) {
       console.log("hit da bad bugga")
     }
+    console.log("got players")
   }
   filterByTeam() {
     PlayerService.filterByTeam()
   }
   filterPosition(position) {
-    debugger
     PlayerService.filterPosition(position)
   }
-
+  addPlayer(playerId) {
+    PlayerService.addPlayer(playerId)
+  }
 
 
 }

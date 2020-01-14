@@ -22,6 +22,7 @@ class PlayerService {
 
   }
   filterByTeam() {
+    debugger
     let collection = store.State.allPlayers
     let team = collection.filter(p => p.team == "SEA")
     store.commit("displayPlayers", team);
@@ -32,7 +33,13 @@ class PlayerService {
     let displayTeam = collection.filter(p => p.position == position)
     store.commit("displayPlayers", displayTeam)
   }
-
+  addPlayer(id) {
+    let player = store.State.allPlayers.find(p => p.id == id)
+    let team = store.State.myTeam
+    team.push(player)
+    store.commit("myTeam", team)
+    console.log(store.State.myTeam)
+  }
 }
 
 const service = new PlayerService();

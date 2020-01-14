@@ -1,7 +1,10 @@
+import Player from "./Models/Player.js";
 
 let _state = {
   allPlayers: [],
-  displayPlayers: []
+  /**@type {Player[]} */
+  displayPlayers: [],
+  myTeam: []
 };
 
 /** Collection of listeners to be called based on keyed state changes
@@ -9,7 +12,8 @@ let _state = {
  */
 let _listeners = {
   allPlayers: [],
-  displayPlayers: []
+  displayPlayers: [],
+  myTeam: []
 };
 
 //NOTE You should not need to change the code from this point down
