@@ -59,15 +59,9 @@ class PlayerService {
     store.commit("displayPlayers", store.State.myTeam)
   }
 
-  //...
-  //...
   loadPlayersData() {
-    // debugger
-    //check if the player already has a copy of the NFL playersData
     let localData = localStorage.getItem('nflData');
-    //if they do, pull from there
     if (localData) {
-      // debugger
       store.State.allPlayers = JSON.parse(localData).map(p => new Player(p));
       let teams = []
       store.State.allPlayers.forEach(p => teams.includes(p.team) ? "" : teams.push(p.team))
@@ -75,26 +69,12 @@ class PlayerService {
       let positions = []
       store.State.allPlayers.forEach(p => positions.includes(p.position) ? "" : positions.push(p.position))
       store.commit("positionChoices", positions)
-
-      console.log(teams)
-      //return will short-circuit the loadPlayersData function
-      //this will prevent the code below from ever executing
+    } else {
+      this.getAllPlayers()
     }
 
-    //if not go get that data
-    // let url = "https://bcw-getter.herokuapp.com/?url=";
-    // let endpointUri = "http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json";
-    // let apiUrl = _sandBox + encodeURIComponent(endpointUri);
 
-    // $.getJSON(_sandBox, function (data) {
-    //   debugger
-    //   store.State.allPlayers = data.body.players
-    //   // .map(p => new Player(p));
-    //   console.log('Player Data Ready')
-    //   console.log('Writing Player Data to localStorage')
-    //   localStorage.setItem('nflData', JSON.stringify(store.State.allPlayers))
-    //   console.log('Finished Writing Player Data to localStorage')
-    // });
+
   }
   // loadPlayersData(); //call the function above every time we create a new service
 

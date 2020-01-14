@@ -33,7 +33,6 @@ export default class SongsController {
   constructor() {
     _drawTeams()
     _drawPositions()
-    // store.subscribe("allPlayers", _draw);
     store.subscribe("displayPlayers", _draw);
     store.subscribe("myTeam", _draw)
 
