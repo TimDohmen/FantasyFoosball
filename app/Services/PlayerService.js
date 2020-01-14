@@ -27,13 +27,11 @@ class PlayerService {
 
   }
   filterByTeam(searchedTeam) {
-    debugger
     let collection = store.State.allPlayers
     let team = collection.filter(p => p.team == searchedTeam)
     store.commit("displayPlayers", team);
   }
   filterPosition(position) {
-    debugger
     let collection = store.State.allPlayers
     let displayTeam = collection.filter(p => p.position == position)
     store.commit("displayPlayers", displayTeam)
@@ -45,7 +43,9 @@ class PlayerService {
     store.commit("myTeam", team)
     console.log(store.State.myTeam)
   }
-
+  viewMyTeam() {
+    store.commit("displayPlayers", store.State.myTeam)
+  }
 
   //...
   //...

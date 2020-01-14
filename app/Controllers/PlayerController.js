@@ -11,7 +11,6 @@ function _draw() {
 }
 
 function _drawTeams() {
-  debugger
   let template = ``
   let teams = store.State.teamChoices
   teams.forEach(t => template += `<option value="${t}">${t}</option>`)
@@ -44,6 +43,8 @@ export default class SongsController {
   addPlayer(playerId) {
     PlayerService.addPlayer(playerId)
   }
-
+  viewMyTeam() {
+    PlayerService.viewMyTeam()
+  }
 
 }
