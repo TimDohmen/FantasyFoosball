@@ -20,10 +20,10 @@ export default class Player {
     let byeWeek = this.bye.split(",")[0]
     let template = ''
     template += `
-    <div class="col-3 pt-3 mb-3">
+    <div class=" col-sm-6 col-md-3 pt-3 mb-3">
       <div class="card h-100 row no-gutters">
       <div class="col-2 h-100 team-bg ">
-      <h3 class="verticalText">${this.team}</h3>
+      <h3 class="verticalText" onclick="app.playerController.filterByTeam('${this.team}')">${this.team}</h3>
       </div>
       <div class="col-10 text-center">
 
@@ -35,7 +35,7 @@ export default class Player {
     <div id="nav">
       <ul class="nav">
         <li><i class="fas fa-football-ball fa-2x  ">
-  <p class="cardText">
+  <p class="cardText" onclick="app.playerController.filterPosition('${this.position}')">
   ${this.position}
   </p>
   </i></li>

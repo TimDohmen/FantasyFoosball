@@ -1,10 +1,10 @@
 import store from "../store.js";
 import Player from "../Models/Player.js";
 
-
 let _sandBox = axios.create({
   baseURL: "//bcw-sandbox.herokuapp.com/api/nflplayers"
 });
+
 class PlayerService {
   constructor() {
     this.loadPlayersData()
@@ -27,18 +27,20 @@ class PlayerService {
       .catch(error => {
         throw new Error(error);
       });
-
   }
+
   filterByTeam(searchedTeam) {
     let collection = store.State.allPlayers
     let team = collection.filter(p => p.team == searchedTeam)
     store.commit("displayPlayers", team);
   }
+
   filterPosition(position) {
     let collection = store.State.allPlayers
     let displayTeam = collection.filter(p => p.position == position)
     store.commit("displayPlayers", displayTeam)
   }
+
   addPlayer(id) {
     let player = store.State.allPlayers.find(p => p.id == id)
     let playerIndex = store.State.allPlayers.findIndex(p => p.id == id)
@@ -48,9 +50,8 @@ class PlayerService {
     store.State.allPlayers.splice(playerIndex, 1)
     store.commit("myTeam", team)
     localStorage.setItem('myTeam', JSON.stringify(team))
-    // localStorage.removeItem('nflData', JSON.stringify(player))
-
   }
+
   removePlayer(id) {
     let player = store.State.myTeam.find(p => p.id == id)
     let team = store.State.myTeam
@@ -60,9 +61,8 @@ class PlayerService {
     store.commit("myTeam", team)
     store.commit("displayPlayers", team)
     localStorage.setItem('myTeam', JSON.stringify(team))
-    // localStorage.setItem('nflData', JSON.stringify(player))
-
   }
+
   viewMyTeam() {
     store.commit("displayPlayers", store.State.myTeam)
   }
@@ -91,7 +91,6 @@ class PlayerService {
       })
     }
   }
-  // loadPlayersData(); //call the function above every time we create a new service
 }
 
 const service = new PlayerService();

@@ -1,7 +1,5 @@
 body{
 overflow-x: hidden;
-background-position: center;
-background-repeat: no-repeat;
 background-size: contain;
 background: url("https://img.pngio.com/45598-png-images-pngio-football-field-background-png-1920_1080.png");
 }
@@ -57,10 +55,11 @@ border: 2px solid yellow;
   position: relative;
 }
 .cardText{
-  color: black;
+  color: white;
+  text-shadow: 2px 2px 5px black;
   font-size: x-large;
   position: absolute;
-  margin-top: -2.2rem;
+  margin-top: -2.1rem;
 }
 #ribbon {
   background-color: rgba(112, 245, 245, 0.9);
