@@ -30,20 +30,35 @@ export default class Player {
       <h3>${this.name}</h3>
       
       <img src="${this.photo}" class="card-img-top" alt="...">
-  <i class="fas fa-football-ball fa-3x  ">
+
+      <div id="ribbon">
+    <div id="nav">
+      <ul class="nav">
+        <li><i class="fas fa-football-ball fa-2x  ">
   <p class="cardText">
   ${this.position}
   </p>
-  </i>
+  </i></li>
+    
+  
       
       `
     if (this.owned) {
-      template += `<button class="btn btn-danger profileBtn" onclick="app.playerController.removePlayer(${this.id})">Remove</button>`
+      template += `
+        <li >
+        <button class="btn btn-danger profileBtn" onclick="app.playerController.removePlayer(${this.id})">Remove</button>
+        </li>`
     }
     else {
-      template += `<button class="btn btn-primary profileBtn" onclick="app.playerController.addPlayer(${this.id})">Add To Team</button>`
+      template += `
+        <li >
+        <button class="btn btn-primary profileBtn" onclick="app.playerController.addPlayer(${this.id})">Add To Team</button>
+        </li>`
     }
-    template += `</div>
+    template += `
+      </ul>
+    </div>
+  </div></div>
       </div>
     </div> `
     return template

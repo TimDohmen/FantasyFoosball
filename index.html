@@ -13,12 +13,14 @@
 <header class="container-fluid sticky-top">
     <div class="row">
         <div class="col-12 justify-content-center d-flex">
+            <img src="https://media.giphy.com/media/k4F7slQ0QX30c/giphy.gif" class="footballGif" alt="">
             <h2>Fantasy Sporkball</h2>
+            <img src="https://media.giphy.com/media/k4F7slQ0QX30c/giphy.gif" class="footballGifFlipped" alt="">
         </div>
-        <div class="col-12">
+        <div class="col-12 pb-3">
 
-            <button onclick="app.playerController.getAllPlayers()">Load Players</button>
-            <button onclick="app.playerController.viewMyTeam()">View My Team</button>
+            <!-- <button onclick="app.playerController.getAllPlayers()">Load Players</button> -->
+            <button onclick="app.playerController.viewMyTeam()" class="btn btn-success">View My Team</button>
             <!-- <p>Filter By Position</p> -->
             <select id="dropDownPositions"
                 onchange="app.playerController.filterPosition(this.options[this.selectedIndex].value)">
