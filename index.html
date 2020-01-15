@@ -10,31 +10,31 @@
     <link rel="stylesheet" href="assets/style.css">
     <title>Fantasy Sporks</title>
 </head>
-<header class="container-fluid">
+<header class="container-fluid sticky-top">
     <div class="row">
-        <div class="col justify-content-center d-flex">
+        <div class="col-12 justify-content-center d-flex">
             <h2>Fantasy Sporkball</h2>
         </div>
-    </div>
-</header>
+        <div class="col-12">
 
-<body class="container-fluid">
-    <div class="row">
-        <div class="col">
             <button onclick="app.playerController.getAllPlayers()">Load Players</button>
             <button onclick="app.playerController.viewMyTeam()">View My Team</button>
-
+            <!-- <p>Filter By Position</p> -->
             <select id="dropDownPositions"
                 onchange="app.playerController.filterPosition(this.options[this.selectedIndex].value)">
                 <option value="">Select a Position</option>
-
             </select>
+            <!-- <p>Filter By Team</p> -->
             <select id="dropDownTeams"
                 onchange="app.playerController.filterByTeam(this.options[this.selectedIndex].value)">
                 <option value="">Select a Team</option>
             </select>
         </div>
     </div>
+</header>
+
+<body class="container-fluid">
+
     <div id="players" class="row"></div>
 
 

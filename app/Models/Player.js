@@ -11,10 +11,11 @@ export default class Player {
     this.firstName = data.firstname || data.firstName
     this.status = data.pro_status || data.status
     this.id = data.id
-    this.owned = false
+    this.owned = data.owned || false
   }
 
   get Template() {
+    let byeWeek = this.bye.split(",")[0]
     let template = ''
     template += `
     <div class="col-3 pt-3 mb-3">
@@ -23,7 +24,7 @@ export default class Player {
         <div class="card-body">
           <h3>${this.name}</h3>
           <h5>Position: ${this.position}  -- ${this.team}</h5>
-          <p class="pb-3">Bye Week: ${this.bye}<p> </div>
+          <p class="pb-3">Bye Week: ${byeWeek}<p> </div>
     `
     if (this.owned) {
       template += `<button class="btn btn-danger" onclick="app.playerController.removePlayer(${this.id})">Remove</button>`

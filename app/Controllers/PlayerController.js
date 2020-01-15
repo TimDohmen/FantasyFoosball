@@ -18,12 +18,10 @@ function _drawTeams() {
 
 }
 function _drawPositions() {
-  debugger
   let template = ``
   let positions = store.State.positionChoices
   positions.forEach(p => template += `<option value="${p}">${p}</option>`)
   document.querySelector("#dropDownPositions").innerHTML = template
-
 }
 
 
