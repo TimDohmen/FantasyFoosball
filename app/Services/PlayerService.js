@@ -47,6 +47,8 @@ class PlayerService {
     store.commit("myTeam", team)
     console.log(store.State.myTeam)
     localStorage.setItem('myTeam', JSON.stringify(team))
+    // localStorage.removeItem('nflData', JSON.stringify(player))
+
   }
   removePlayer(id) {
     let player = store.State.myTeam.find(p => p.id == id)
@@ -54,8 +56,9 @@ class PlayerService {
     player.owned = false
     team = team.filter(p => p.id != id)
     store.commit("myTeam", team)
-    debugger
     localStorage.setItem('myTeam', JSON.stringify(team))
+    // localStorage.setItem('nflData', JSON.stringify(player))
+
   }
   viewMyTeam() {
     store.commit("displayPlayers", store.State.myTeam)
@@ -66,7 +69,8 @@ class PlayerService {
     let localTeam = localStorage.getItem('myTeam');
     if (localData) {
       store.State.allPlayers = JSON.parse(localData).map(p => new Player(p));
-      store.State.myTeam = JSON.parse(localTeam).map(p => new Player(p));
+      // let myTeam = JSON.parse(localTeam).map(p => new Player(p));
+      // myTeam ? store.commit("myTeam", myTeam) : ""
       let teams = []
       store.State.allPlayers.forEach(p => teams.includes(p.team) ? "" : teams.push(p.team))
       store.commit("teamChoices", teams)
@@ -75,6 +79,11 @@ class PlayerService {
       store.commit("positionChoices", positions)
     } else {
       this.getAllPlayers()
+    }
+
+    if (localTeam) {
+      store.State.myTeam = JSON.parse(localTeam).map(p => new Player(p));
+
     }
   }
   // loadPlayersData(); //call the function above every time we create a new service

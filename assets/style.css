@@ -1,0 +1,15 @@
+.card{
+background-color: rgba(255, 255, 255, 0.4) !important;
+border-radius: 12px;
+border: 2px solid yellow;
+}
+.verticalText {
+  margin-left: .5rem;
+    position: absolute;
+    top: 50%;
+     transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+.team-bg{
+  flex: none;
+  background-color: yellow;
+}
