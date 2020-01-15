@@ -21,6 +21,12 @@ header{
 .col-2{
   max-width: 7% !important;
 }
+.col-12 section{
+  display: grid;
+}
+.topSection{
+  justify-content: space-between;
+}
 .card{
 background-color: rgba(255, 255, 255, 0.4) !important;
 border-radius: 12px;
@@ -52,7 +58,7 @@ border: 2px solid yellow;
   margin-top: -2.2rem;
 }
 #ribbon {
-  background-color: #47c7f0;
+  background-color: rgba(112, 245, 245, 0.9);
   width: unset;
   padding: 0px;
   position: relative;
@@ -83,7 +89,7 @@ border: 2px solid yellow;
   bottom: 6px;
   position: absolute;
   display: block;
-  border: 25px solid #47c7f0;
+  border: 25px solid rgba(112, 245, 245, 0.9);
   box-shadow: 0 8px 6px -6px #999999;
   z-index: 0;
 }

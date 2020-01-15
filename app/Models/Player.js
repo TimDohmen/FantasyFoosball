@@ -25,7 +25,7 @@ export default class Player {
       <div class="col-2 h-100 team-bg ">
       <h3 class="verticalText">${this.team}</h3>
       </div>
-      <div class="col-10">
+      <div class="col-10 text-center">
 
       <h3>${this.name}</h3>
       

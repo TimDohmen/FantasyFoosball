@@ -56,6 +56,8 @@ class PlayerService {
     player.owned = false
     team = team.filter(p => p.id != id)
     store.commit("myTeam", team)
+    store.commit("displayPlayers", team)
+
     localStorage.setItem('myTeam', JSON.stringify(team))
     // localStorage.setItem('nflData', JSON.stringify(player))
 
