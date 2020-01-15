@@ -41,11 +41,12 @@ class PlayerService {
   }
   addPlayer(id) {
     let player = store.State.allPlayers.find(p => p.id == id)
+    let playerIndex = store.State.allPlayers.findIndex(p => p.id == id)
     let team = store.State.myTeam
     player.owned = true
     team.push(player)
+    store.State.allPlayers.splice(playerIndex, 1)
     store.commit("myTeam", team)
-    console.log(store.State.myTeam)
     localStorage.setItem('myTeam', JSON.stringify(team))
     // localStorage.removeItem('nflData', JSON.stringify(player))
 
@@ -55,9 +56,9 @@ class PlayerService {
     let team = store.State.myTeam
     player.owned = false
     team = team.filter(p => p.id != id)
+    store.State.allPlayers.push(player)
     store.commit("myTeam", team)
     store.commit("displayPlayers", team)
-
     localStorage.setItem('myTeam', JSON.stringify(team))
     // localStorage.setItem('nflData', JSON.stringify(player))
 
@@ -85,7 +86,9 @@ class PlayerService {
 
     if (localTeam) {
       store.State.myTeam = JSON.parse(localTeam).map(p => new Player(p));
-
+      store.State.myTeam.forEach(p => {
+        store.State.allPlayers = store.State.allPlayers.filter(players => players.id != p.id)
+      })
     }
   }
   // loadPlayersData(); //call the function above every time we create a new service

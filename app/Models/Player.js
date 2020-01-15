@@ -27,7 +27,7 @@ export default class Player {
       </div>
       <div class="col-10 text-center">
 
-      <h3>${this.name}</h3>
+      <h3 class="noWrapName">${this.name}</h3>
       
       <img src="${this.photo}" class="card-img-top" alt="...">
 
