@@ -13,3 +13,18 @@ border: 2px solid yellow;
   flex: none;
   background-color: yellow;
 }
+
+.profileBtn{
+  bottom: 0;
+}
+
+.fa-football-ball{
+  color: green;
+  position: relative;
+}
+.cardText{
+  color: black;
+  font-size: x-large;
+  position: absolute;
+  margin-top: -2.2rem;
+}
