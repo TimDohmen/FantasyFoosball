@@ -35,6 +35,7 @@ getPlayersByPosition(position)
 ```
 
 this method receives a player's position and returns an array of all players with that position
+
 Each function relies on the data retrieved from the external source.
 Lastly we will need some way to add players to a user team array
 The usersTeam will be private so it will need a public getter that will simply return a copy of the usersTeam
@@ -42,14 +43,13 @@ The usersTeam will be private so it will need a public getter that will simply r
 Based on this outline, we know our service needs to have player data, and a few functions. Let's put a few examples in just to get the ball rolling. We will eventually want to sort players somehow so adding in the ability to do this by team and by position might be a good start.
 
 ```js
-function PlayersService(callback){
-  var playersData = [];
+class PlayersService{
 
-  this.getPlayersByTeam = function(teamName){
+  getPlayersByTeam(teamName){
     //return an array of all players who match the given teamName.
   }
 
-  this.getPlayersByPosition = function(position){
+  getPlayersByPosition(position){
     //return an array of all players who match the given position.
   }
 }
