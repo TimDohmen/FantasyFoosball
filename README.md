@@ -19,7 +19,7 @@ In this checkpoint students will demonstrate their understanding of working with
 <hr>
 
 ### Step 1. 
-At the start of the application we will need to retrieve player data from an external source
+At the start of the application we will need to retrieve player data from an external source.
 We should only have to retrieve the data once, then we can store it to a local variable inside our footballService.
 Next we will need some way to filter player data by certain properties such as Name, Position, Team, etc...
 To make it simple we will start with 2 basic functions
