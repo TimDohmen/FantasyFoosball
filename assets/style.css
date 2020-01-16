@@ -1,6 +1,6 @@
 body{
-overflow-x: hidden;
-background: url("https://img.pngio.com/45598-png-images-pngio-football-field-background-png-1920_1080.png");
+  background: url("https://img.pngio.com/45598-png-images-pngio-football-field-background-png-1920_1080.png");
+  overflow-x: hidden;
 background-size: cover;
 background-position: center;
 background-attachment: fixed;
@@ -48,9 +48,9 @@ border: 2px solid yellow;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-  .noWrapName :active, :hover {
+.noWrapName:active, .noWrapName:hover {
     overflow: visible;
-  }
+}
 
 .team-bg{
   flex: none;
