@@ -4,9 +4,7 @@ let _state = {
   allPlayers: [],
   /**@type {Player[]} */
   displayPlayers: [],
-  myTeam: [],
-  teamChoices: [],
-  positionChoices: []
+  myTeam: []
 };
 
 /** Collection of listeners to be called based on keyed state changes
@@ -15,11 +13,7 @@ let _state = {
 let _listeners = {
   allPlayers: [],
   displayPlayers: [],
-  myTeam: [],
-  teamChoices: [],
-  positionChoices: []
-
-
+  myTeam: []
 };
 
 //NOTE You should not need to change the code from this point down
@@ -52,6 +46,24 @@ class Store {
   get State() {
     return _state;
   }
+  get TeamChoices() {
+    let teams = []
+    _state.allPlayers.forEach(p => {
+      if (!teams.includes(p.team)) {
+        teams.push(p.team)
+      }
+    })
+    return teams
+  }
+  get PositionChoices() {
+    let positions = []
+    _state.allPlayers.forEach(p => {
+      if (!positions.includes(p.position)) {
+        positions.push(p.position)
+      }
+    })
+    return positions
+  }
   /**
    * Takes in a property to observe, and a function to run when it changes
    * @param {string} prop
@@ -73,9 +85,6 @@ class Store {
     _state[prop] = data;
     _listeners[prop].forEach(fn => fn());
   }
-
-
-
 }
 
 const store = new Store();
