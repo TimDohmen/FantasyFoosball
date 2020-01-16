@@ -1,7 +1,9 @@
 body{
 overflow-x: hidden;
-background-size: contain;
 background: url("https://img.pngio.com/45598-png-images-pngio-football-field-background-png-1920_1080.png");
+background-size: contain;
+background-position: center;
+background-attachment: fixed;
 }
 #players{
   text-shadow: -1px -1px 0px white, 1px -1px 0px white, -1px 1px 0px white, 1px 1px 0px white;
@@ -40,7 +42,10 @@ border: 2px solid yellow;
      transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
 } 
 .noWrapName{
-  white-space: nowrap;
+  white-space: nowrap;  
+  width: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .team-bg{
   flex: none;
