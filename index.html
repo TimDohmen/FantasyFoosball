@@ -5,48 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Fantasy Foos</title>
+    <title>Fantasy Football</title>
 </head>
-<header class="container-fluid sticky-top">
-    <div class="row">
-        <div class="col-12 justify-content-center d-flex">
-            <img src="https://media.giphy.com/media/k4F7slQ0QX30c/giphy.gif" class="footballGif" alt="">
-            <h2 onclick="document.documentElement.scrollTop = 0">Fantasy Foosball</h2>
-            <img src="https://media.giphy.com/media/k4F7slQ0QX30c/giphy.gif" class="footballGifFlipped" alt="">
-        </div>
-        <div class="col-12 topSection d-flex pb-3">
-            <section>
-                <p>Filter By Position</p>
-                <select id="dropDownPositions"
-                    onchange="app.playerController.filterPosition(this.options[this.selectedIndex].value)">
-                    <option value="">Select a Position</option>
-                </select>
-            </section>
-            <button onclick="app.playerController.viewMyTeam()" class="btn btn-success">View My Team</button>
-            <section>
-                <p>Filter By Team</p>
-                <select id="dropDownTeams"
-                    onchange="app.playerController.filterByTeam(this.options[this.selectedIndex].value)">
-                    <option value="">Select a Team</option>
-                </select>
-            </section>
-        </div>
-    </div>
-</header>
 
-<body class="container-fluid">
-    <div id="players" class="row">
-    </div>
 
-    <script src="https://kit.fontawesome.com/805f26c2b2.js" crossorigin="anonymous"></script>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
-        </script>
+<body>
+    <h3>Fantasy Football</h3>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.js"></script>
     <script src="app/main.js" type="module"></script>
 </body>
 

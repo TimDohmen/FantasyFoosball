@@ -46,6 +46,7 @@ class Store {
   get State() {
     return _state;
   }
+  //NOTE itterates over array of players to add team name to array and return it.
   get TeamChoices() {
     let teams = []
     _state.allPlayers.forEach(p => {
@@ -55,6 +56,7 @@ class Store {
     })
     return teams
   }
+  //NOTE itterates over array of players to add position choice to array and return it.
   get PositionChoices() {
     let positions = []
     _state.allPlayers.forEach(p => {
