@@ -22,7 +22,7 @@ export default class Player {
     template += `
     <div class=" col-sm-6 col-md-3 pt-3 mb-3">
       <div class="card h-100 row no-gutters">
-      <div class="col-2 h-100 team-bg ">
+      <div class="col-2 h-100 team-bg ${this.team}">
       <h3 class="verticalText" onclick="app.playerController.filterByTeam('${this.team}')">${this.team}</h3>
       </div>
       <div class="col-10 text-center">
