@@ -4,8 +4,7 @@ import Player from "../Models/Player.js";
 let _sandBox = axios.create({
   baseURL: "//bcw-sandbox.herokuapp.com/api/nflplayers"
 });
-//NOTE these functions are above the class to be private because they are never called in another file
-//NOTE this attempts to loadplayers with the key("allPlayers"), if local storage doesnt return anything, it will do a get request to the sandbox to retrieve players and save them in local storage
+
 async function getNFLData() {
   try {
     let players = loadPlayers("allPlayers")
@@ -19,11 +18,9 @@ async function getNFLData() {
     console.error(error)
   }
 }
-//NOTE takes in a key(teamName) to save at in local storage and then the value(players) to be set there
 function savePlayers(teamName, players) {
   localStorage.setItem(teamName, JSON.stringify(players))
 }
-//NOTE takes in a key(teamName) to retrieve saved data from local storage and maps the data to new players
 function loadPlayers(teamName) {
   let rawData = JSON.parse(localStorage.getItem(teamName)) || []
   return rawData.map(p => new Player(p))
@@ -31,10 +28,56 @@ function loadPlayers(teamName) {
 
 class PlayerService {
   constructor() {
-    //NOTE on load of this service this function will be called
     this.loadPlayersData()
   }
-  //NOTE loads players and myTeam, then filters myTeams players out of the collection of players so you can't add them twice
+
+  filterByTeam(searchedTeam) {
+    let collection = store.State.allPlayers
+    let team = collection.filter(p => p.team == searchedTeam)
+    store.commit("displayPlayers", team);
+  }
+
+  filterPosition(position) {
+    let collection = store.State.allPlayers
+    let displayTeam = collection.filter(p => p.position == position)
+    store.commit("displayPlayers", displayTeam)
+  }
+
+  addPlayer(id) {
+    let playerIndex = -1
+    let player = store.State.allPlayers.find((p, i) => {
+      if (p.id == id) {
+        playerIndex = i
+        return p
+      }
+    })
+    if (!player) {
+      console.error("invalid id")
+      return
+    }
+    let team = store.State.myTeam
+    player.owned = true
+    team.push(player)
+    store.State.allPlayers.splice(playerIndex, 1)
+    store.commit("myTeam", team)
+    savePlayers("myTeam", team)
+  }
+
+  removePlayer(id) {
+    let team = store.State.myTeam
+    let player = team.find(p => p.id == id)
+    player.owned = false
+    team = team.filter(p => p.id != id)
+    store.State.allPlayers.push(player)
+    store.commit("myTeam", team)
+    store.commit("displayPlayers", team)
+    savePlayers("myTeam", team)
+  }
+
+  viewMyTeam() {
+    store.commit("displayPlayers", store.State.myTeam)
+  }
+
   async loadPlayersData() {
     let allPlayers = await getNFLData()
     let myTeam = loadPlayers("myTeam")
