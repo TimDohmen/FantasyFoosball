@@ -38,6 +38,11 @@ export default class PlayerController {
   filterPosition(position) {
     PlayerService.filterPosition(position)
   }
+  filterByName() {
+    event.preventDefault()
+    PlayerService.filterByName(event.target.playerName.value)
+    event.target.reset()
+  }
   addPlayer(playerId) {
     PlayerService.addPlayer(playerId)
   }

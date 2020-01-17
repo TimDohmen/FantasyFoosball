@@ -25,7 +25,14 @@
                     <option value="">Select a Position</option>
                 </select>
             </section>
-            <button onclick="app.playerController.viewMyTeam()" class="btn btn-success">View My Team</button>
+            <button onclick="app.playerController.viewMyTeam()" class="btn btn-success myTeamButton">View My
+                Team</button>
+            <form onsubmit="app.playerController.filterByName()">
+                <div class="form-group">
+                    <label> Filter By Player Name</label>
+                    <input type="text" class="form-control" id="playerName" placeholder="Enter Player Name">
+                </div>
+            </form>
             <section>
                 <p>Filter By Team</p>
                 <select id="dropDownTeams"

@@ -36,7 +36,11 @@ class PlayerService {
     let team = collection.filter(p => p.team == searchedTeam)
     store.commit("displayPlayers", team);
   }
-
+  filterByName(name) {
+    let collection = store.State.allPlayers
+    let team = collection.filter(p => p.name.toLowerCase().includes(name.toLowerCase()))
+    store.commit("displayPlayers", team);
+  }
   filterPosition(position) {
     let collection = store.State.allPlayers
     let displayTeam = collection.filter(p => p.position == position)

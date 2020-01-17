@@ -42,6 +42,10 @@ border: 2px solid yellow;
     top: 50%;
      transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
 } 
+.myTeamButton{
+      height: fit-content;
+    align-self: center;
+}
 .noWrapName{
   white-space: nowrap;  
   width: inherit;
