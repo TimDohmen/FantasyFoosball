@@ -69,13 +69,17 @@ export default class PlayerController {
 
   }
   filterByTeam(team) {
+    currentPage = 1
     PlayerService.filterByTeam(team)
   }
   filterPosition(position) {
+    currentPage = 1
     PlayerService.filterPosition(position)
+
   }
   filterByName() {
     event.preventDefault()
+    currentPage = 1
     PlayerService.filterByName(event.target.playerName.value)
     event.target.reset()
   }
