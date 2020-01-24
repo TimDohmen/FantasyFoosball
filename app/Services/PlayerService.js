@@ -89,6 +89,7 @@ class PlayerService {
     myTeam.forEach(p => teamIds[p.id] = true)
     allPlayers = allPlayers.filter(player => !teamIds[player.id])
     store.commit('allPlayers', allPlayers)
+    store.commit('displayPlayers', allPlayers)
     store.commit('myTeam', myTeam)
   }
 }

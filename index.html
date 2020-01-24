@@ -18,7 +18,7 @@
             <h2 onclick="document.documentElement.scrollTop = 0">Fantasy Foosball</h2>
             <img src="https://media.giphy.com/media/k4F7slQ0QX30c/giphy.gif" class="footballGifFlipped" alt="">
         </div>
-        <div class="col-12 topSection d-flex pb-3">
+        <div class="col-12 spacedSection d-flex pb-3">
             <section>
                 <p>Filter By Position</p>
                 <select id="dropDownPositions"
@@ -43,12 +43,27 @@
             </section>
         </div>
     </div>
+
 </header>
 
 <body class="container-fluid">
+
     <div id="players" class="row">
     </div>
-
+    <div class="row ">
+        <div class="col d-flex spacedSection">
+            <input type="button" class="btn btn-secondary" id="first" onclick="app.playerController.firstPage()"
+                value="First" />
+            <input type="button" class="btn btn-secondary" id="prev" onclick="app.playerController.prevPage()"
+                value="Prev" />
+            <h3>Page: <span id="pageNum"></span> / <span id="totalPages"></span>
+            </h3>
+            <input type="button" class="btn btn-secondary" id="next" onclick="app.playerController.nextPage()"
+                value="Next" />
+            <input type="button" class="btn btn-secondary" id="last" onclick="app.playerController.lastPage()"
+                value="Last" />
+        </div>
+    </div>
     <script src="https://kit.fontawesome.com/805f26c2b2.js" crossorigin="anonymous"></script>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
