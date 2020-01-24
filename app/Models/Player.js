@@ -21,7 +21,7 @@ export default class Player {
     let template = ''
     template += `
     <div class=" col-sm-6 col-md-3 pt-3 mb-3">
-      <div class="card h-100 row no-gutters">
+      <div class="card h-100 row no-gutters ${this.team}outline">
       <div class="col-2 h-100 team-bg ${this.team}">
       <h3 class="verticalText" onclick="app.playerController.filterByTeam('${this.team}')">${this.team}</h3>
       </div>

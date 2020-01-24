@@ -1,3 +1,103 @@
+
+.JACoutline{
+border: 2px solid black;
+}
+.ARIoutline{
+border: 2px solid white;
+}
+.BALoutline{
+border: 2px solid black;
+}
+.CARoutline{
+border: 2px solid black;
+}
+.CINoutline{
+border: 2px solid black;
+}
+.DALoutline{
+border: 2px solid grey;
+}
+.DEToutline{
+border: 2px solid white;
+}
+.HOUoutline{
+border: 2px solid red;
+}
+.LACoutline{
+border: 2px solid gold;
+}
+.MIAoutline{
+border: 2px solid orange;
+}
+.NEoutline{
+border: 2px solid red;
+}
+.NYGoutline{
+border: 2px solid white;
+}
+.OAKoutline{
+border: 2px solid grey;
+}
+.PIToutline{
+border: 2px solid gold;
+}
+.SEAoutline{
+border: 2px solid rgb(28, 255, 66);
+}
+.TENoutline{
+border: 2px solid red;
+}
+.ATLoutline{
+border: 2px solid silver;
+}
+.BUFoutline{
+border: 2px solid red;
+}
+.CHIoutline{
+border: 2px solid orange;
+}
+.CLEoutline{
+border: 2px solid orange;
+}
+.DENoutline{
+border: 2px solid navy;
+}
+.GBoutline{
+border: 2px solid gold;
+}
+.INDoutline{
+border: 2px solid white;
+}
+.KCoutline{
+border: 2px solid white;
+}
+.LARoutline{
+border: 2px solid gold;
+}
+.MINoutline{
+border: 2px solid gold;
+}
+.NOoutline{
+border: 2px solid gold;
+}
+.NYJoutline{
+border: 2px solid white;
+}
+.PHIoutline{
+border: 2px solid white;
+}
+.SFoutline{
+border: 2px solid gold;
+}
+.TBoutline{
+border: 2px solid grey;
+}
+  .ASoutline{
+border: 2px solid black;
+  }
+
+
+
 .JAC{
   background-color: #006778 ;
    border-radius: 10px;
@@ -154,9 +254,11 @@
    border-radius: 10px;
   border: 1px solid #d50a0a;
 }
+
 .WAS{
-  
       background-color:#773141 ;
    border-radius: 10px;
   border: 1px solid #773141;
 }
+
+
